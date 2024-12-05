@@ -1,0 +1,55 @@
+{% extends "base.html"%}
+
+{% block cuerpo %}
+<div class="row">
+
+    <div class="col-md-4 offset-md-4">
+<!-- la tarjeta card -->
+<div class="card">
+<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4"><!-- columna izquierda-->
+    <h1>Ventas</h1>
+    <div class="card"> <!-- tarjeta -->
+        <div class="card-body">
+            <form action="/editarVenta/" method="POST"> {% csrf_token %} <!-- formulario-->
+
+                <div class="form-group">
+                    <input type="number" name="txtid_venta" class="form-control" value="{{ venta.id_venta }}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="txtid_cliente" class="form-control" value="{{ venta.id_cliente }}" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="txtid_empleado" class="form-control" value="{{ venta.id_empleado }}" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="txtid_producto" class="form-control" value="{{ venta.id_producto }}" readonly>
+                </div>
+
+                <div class="form-group py-3">
+                    <input type="date" name="txtfecha_venta" class="form-control" value="{{ fecha_venta }}" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="numcant" class="form-control" value="{{ venta.cant }}" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="numimporte_pagar" class="form-control" value="{{ venta.importe_pagar }}" required>
+                </div>
+
+                <div class="form-roup py-2">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+
+            </form><!-- formulario-->
+        </div>
+    </div>
+
+<!-- la tarjeta card -->
+    </div><!--columna-->
+
+</div><!--la fila-->
+{% endblock %}
